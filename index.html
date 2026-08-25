@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cow Sound Player</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background-color: #4CAF50;
+            color: white;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Cow Sound Player</h1>
+    <button onclick="toggleSound()" id="soundBtn">Play Cow Noise</button>
+
+    <audio id="cowAudio" loop>
+        <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg">
+        <source src="https://actions.google.com/sounds/v1/animals/cow_moo.ogg" type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        const audio = document.getElementById('cowAudio');
+        const btn = document.getElementById('soundBtn');
+
+        function toggleSound() {
+            if (audio.paused) {
+                audio.play();
+                btn.textContent = "Stop Sound";
+                btn.style.backgroundColor = "#f44336";
+            } else {
+                audio.pause();
+                audio.currentTime = 0;
+                btn.textContent = "Play Cow Noise";
+                btn.style.backgroundColor = "#4CAF50";
+            }
+        }
+    </script>
+
+</body>
+</html>
